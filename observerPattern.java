@@ -1,5 +1,7 @@
-// Online Java Compiler
-// Use this editor to write, compile and run your Java code online
+/*
+ * In observer pattern there is a object whose changes are to be conveyed to other dependent observer 
+ * objects
+ */
 import java.util.*;
 import java.lang.reflect.Method;
 import java.lang.reflect.*;
@@ -53,10 +55,10 @@ class Student {
     
     void callReflectUpdate(Object obs) {
         try {
+            //List all the methods in a class
             for(Method method: obs.getClass().getDeclaredMethods()) {
                 System.out.println("Name: " + method.getName());
             }
-            // System.out.println(obs.getClass().getDeclaredMethod("update"));
             Method method = obs.getClass().getDeclaredMethod("update");
             method.setAccessible(true);
             method.invoke(obs);
@@ -70,7 +72,7 @@ class Subscriber {
     Subscriber() {}
     
     public void update() {
-        System.out.println("Aman Prakash Jha");
+        System.out.println("Notified");
     }
 }
 
